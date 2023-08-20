@@ -15,6 +15,7 @@ export default function useAxios() {
 
   async function get(url: string) {
     const token = await getAuthorizedToken();
+    console.log(token);
     return axios.get(baseUrl + url, {
       headers: {
         Authorization: "Bearer " + token,
