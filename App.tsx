@@ -11,7 +11,13 @@ import ProfileScreen from "./src/screens/profile";
 import NewProfileScreen from "./src/screens/new-profile";
 import LoadingScreen from "./src/screens/loading";
 import usePatient from "./src/hooks/usePatient";
+import {
+  CalendarDaysIcon,
+  HomeIcon,
+  UserIcon,
+} from "react-native-heroicons/solid";
 import { useEffect } from "react";
+import colors from "tailwindcss/colors";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -49,13 +55,7 @@ function Navigation() {
         </Stack.Navigator>
       ) : !patient ? (
         <Stack.Navigator>
-          <Stack.Screen
-            name="New Profile"
-            component={NewProfileScreen}
-            options={{
-              headerShown: false,
-            }}
-          />
+          <Stack.Screen name="New Profile" component={NewProfileScreen} />
         </Stack.Navigator>
       ) : (
         <Stack.Navigator>
@@ -63,6 +63,10 @@ function Navigation() {
             name="Tabs"
             component={TabsNavigation}
             options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="New Appointment"
+            component={NewAppointmentScreen}
           />
         </Stack.Navigator>
       )}
@@ -73,10 +77,37 @@ function Navigation() {
 function TabsNavigation() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Dashboard" component={DashboardScreen} />
-      <Tab.Screen name="Appointments" component={AppointmentsScreen} />
-      <Tab.Screen name="New Appointment" component={NewAppointmentScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen
+        name="Dashboard"
+        component={DashboardScreen}
+        options={{
+          headerTitle: "Alternata Book",
+          tabBarActiveTintColor: colors.indigo["500"],
+          tabBarIcon: ({ color, size }) => (
+            <HomeIcon color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Appointments"
+        component={AppointmentsScreen}
+        options={{
+          tabBarActiveTintColor: colors.indigo["500"],
+          tabBarIcon: ({ color, size }) => (
+            <CalendarDaysIcon color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          tabBarActiveTintColor: colors.indigo["500"],
+          tabBarIcon: ({ color, size }) => (
+            <UserIcon color={color} size={size} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }

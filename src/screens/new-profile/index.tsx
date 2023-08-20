@@ -63,9 +63,9 @@ export default function NewProfileScreen({}: {}) {
   if (section === 0)
     return (
       <SafeAreaView className="w-full h-full">
-        <View className="flex flex-col h-full p-8">
-          <Text className="text-black text-2xl font-bold">Patient Details</Text>
-          <View className="flex-1 my-8 space-y-4">
+        <View className="flex flex-col h-full p-6">
+          <Text className="text-black text-md font-bold">Patient Details</Text>
+          <View className="flex-1 my-6 space-y-4">
             <View>
               <Text className={errors["first_name"] ? "text-red-500" : ""}>
                 First Name
@@ -170,11 +170,11 @@ export default function NewProfileScreen({}: {}) {
   else if (section === 1)
     return (
       <SafeAreaView className="w-full h-full">
-        <View className="flex flex-col h-full p-8">
-          <Text className="text-black text-2xl font-bold">
+        <View className="flex flex-col h-full p-6">
+          <Text className="text-black text-md font-bold">
             Address Information
           </Text>
-          <View className="flex-1 my-8 space-y-4">
+          <View className="flex-1 my-6 space-y-4">
             <View>
               <Text className={errors["address.street"] ? "text-red-500" : ""}>
                 Street
@@ -238,11 +238,11 @@ export default function NewProfileScreen({}: {}) {
   else if (section === 2)
     return (
       <SafeAreaView className="w-full h-full">
-        <View className="flex flex-col h-full p-8">
-          <Text className="text-black text-2xl font-bold">
+        <View className="flex flex-col h-full p-6">
+          <Text className="text-black text-md font-bold">
             Other Information
           </Text>
-          <View className="flex-1 my-8 space-y-4">
+          <View className="flex-1 my-6 space-y-4">
             <View>
               <Text className={errors["contact_no"] ? "text-red-500" : ""}>
                 Contact No.

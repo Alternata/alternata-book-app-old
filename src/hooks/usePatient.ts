@@ -9,5 +9,7 @@ export default function usePatient() {
     return patient;
   });
 
-  return swr;
+  const patient: Patient = swr.data;
+
+  return { patient, ...swr };
 }
